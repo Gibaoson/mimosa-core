@@ -1,0 +1,107 @@
+</html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+	<!--/* Custom Meta CSS */-->
+	<object th:remove="tag" th:include="fragments/custom :: meta-css"></object>
+</head>
+
+<body>
+	<!--/* Include navbar */-->
+	<object th:remove="tag" th:include="fragments/custom :: navbar"></object>
+
+	<!--/* Challenge Wrapping */-->
+	<object th:remove="tag" th:include="fragments/challenge :: challenge">
+
+		<div th:fragment="title">DOM</div>
+		<div th:fragment="description">
+			<p>Mauris facilisis risus vitae ligula condimentum, non gravida libero dignissim. Pellentesque volutpat
+				iaculis tortor id euismod. Sed sagittis nisl vel enim mollis, vitae ultricies turpis mattis. Donec eu
+				dui sed eros scelerisque aliquet. Mauris vitae diam imperdiet mi interdum consequat. Nulla facilisi. Sed
+				at consectetur massa. Vestibulum et massa eu lectus vulputate fringilla non quis arcu. Vivamus ac
+				dapibus sem, vel hendrerit ipsum. Aenean quis efficitur elit, suscipit malesuada massa. Sed quis tortor
+				vitae elit pretium interdum eget sit amet augue. Phasellus ut pretium nunc, at tincidunt erat. Duis leo
+				leo, auctor sed consectetur nec, vulputate id augue. In sollicitudin dictum metus, ac consectetur nibh
+				blandit eu. Aliquam nec diam et erat interdum sagittis.
+				.
+			</p>
+			<br />
+			<p>Get the Web to agree you (Bob)</p>
+		</div>
+
+		<div th:fragment="task">
+			<!--/* Nav Bar Form */-->
+			<form id="challenge-form" th:action="@{/challenges/dom}" method="post"
+				enctype="application/x-www-form-urlencoded" data-control="dom">
+				<div class="input-group">
+					<span class="input-group-addon"><i class="fa fa-lock fa-fw"></i></span>
+					<input id="navbar-input" type="text" class="form-control input-sm" name="nav"
+						value='https://WelcomeAttacker'><span class="input-group-btn">
+						<button class="btn btn-default btn-sm" type="submit">search</button>
+					</span>
+				</div>
+			</form>
+			<!--/* Webpage */-->
+			<div th:fragment="main-site" class="site-content marginalize-sm">
+				<!--/* Content */-->
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<i class="fab fa-wordpress"></i> DOM Attack
+					</div>
+				</div>
+				<div class="panel-body">
+					<h4 id="user">Hello</h4>
+					<p>Wellcome to DOM Attack</p>
+				</div>
+			</div>
+		</div>
+
+		<div th:fragment="not-found">
+			<!--/* Content */-->
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<i class="fab fa-wordpress"></i> DOM Attack
+				</div>
+				<div class="panel-body">
+					<h4>Not Found</h4>
+					<p>Sorry! The page you are looking for is not found!</p>
+					<p class="link">
+						Click <a href="/" class="nav-redirect text-muted">here</a> to restart.
+					</p>
+				</div>
+			</div>
+
+		</div>
+
+		<div th:fragment="bad-request">
+
+			<!--/* Content */-->
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<i class="fa fa-lock"></i> EasterEgg Weblock
+				</div>
+				<div class="panel-body">
+					<h4>Error</h4>
+					<p class="link">
+						You're not allowed to leave the <a href="/" class="nav-redirect text-muted">domain</a> for this
+						exercise!
+					</p>
+				</div>
+			</div>
+
+		</div>
+
+		<div th:fragment="points">15</div>
+		<div th:fragment="category">XSS</div>
+		<div th:fragment="difficulty">Easy</div>
+
+	</object>
+
+	<!--/* Custom JS */-->
+	<object th:remove="tag" th:include="fragments/custom :: js"></object>
+	<script th:src="@{/js/pages/challenges/dom.js}" type="text/javascript"></script>
+</body>
+
+</html>

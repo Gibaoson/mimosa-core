@@ -33,7 +33,7 @@ public class SyndicaChallengeController extends ChallengeControllerAdapter {
 		String html = "<html><head></head><body><p>"  + checkBad("https://dism.edu.sg/search", nav) + "</p></body></html>";
 		PageParser parser = new PageParser(html);
 		parser.update();
-
+		System.out.println(parser.getAlerts())
 		// Has an alert
 		if (parser.getAlerts().size() > 0)
 			attempt.addPoints(10);

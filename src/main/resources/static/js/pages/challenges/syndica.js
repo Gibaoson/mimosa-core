@@ -32,6 +32,7 @@ function load_redirect() {
 }
 
 function syndica_success(response) {
+	// console.log(response);
 	$(".site-content").html(response.data.page);
 	load_redirect();
 	attach_search();

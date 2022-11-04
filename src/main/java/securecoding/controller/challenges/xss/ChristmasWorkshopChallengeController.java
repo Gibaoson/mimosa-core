@@ -22,7 +22,7 @@ public class ChristmasWorkshopChallengeController extends ChallengeControllerAda
 
 		PageParser parser = new PageParser(html);
 		List<HtmlAnchor> anchors = parser.getPage().getAnchors();
-
+		System.out.println(anchors);
 		if (anchors.size() > 0)
 			attempt.addPoints(5);
 		if (anchors.stream()

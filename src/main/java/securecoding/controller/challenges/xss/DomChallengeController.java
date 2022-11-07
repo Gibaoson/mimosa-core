@@ -33,11 +33,12 @@ public class DomChallengeController extends ChallengeControllerAdapter {
 		PageParser parser = new PageParser(html);
 		parser.update();
 
-		// Has an alert
-		if (parser.getAlerts().size() > 0)
-			attempt.addPoints(10);
-		if (parser.getAlerts().contains("xss_by_sam_tan"))
-			attempt.addPoints(15);
+		// Marking
+		if (nav.indexOf("Name=") + 5 !=4){
+			if (nav.substring(nav.indexOf("Name=") + 5).contains("alert"))
+				attempt.addPoints(15);
+			attempt.addPoints(5);
+		}
 	}
 
 	private String fetchPage(String mainPath, String url) throws Exception {

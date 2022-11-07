@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  test();
+  output();
   load_redirect();
 });
 
@@ -14,10 +14,9 @@ function load_redirect() {
 }
 
 function dom_success(response) {
-  console.log(response);
   $(".site-content").html(response.data.page);
   load_redirect();
-  test();
+  output();
   default_challenge_success(response);
 }
 
@@ -25,14 +24,13 @@ function dom_error(response) {
   default_challenge_error(response);
 }
 
-function test() {
+function output() {
   var username =
     document.getElementById("navbar-input").value.indexOf("Name=") + 5;
   if (username != 4) {
     var user = document
       .getElementById("navbar-input")
       .value.substring(username);
-    console.log(user)
-    document.getElementById("user").innerHTML = user;
+    document.getElementById("user").innerHTML = "Hello " + user;
   }
 }

@@ -29,16 +29,14 @@ public class DomChallengeController extends ChallengeControllerAdapter {
 		attempt.getData().put("page", content);
 
 		// Replace content
-		String html = "<html><head></head><body><p>" + "https://WelcomeAttacker" + "</p></body></html>";
+		String html = "<html><head></head><body><p>" + "https://WelcomeAttacker"+nav + "</p></body></html>";
 		PageParser parser = new PageParser(html);
 		parser.update();
-
 		// Marking
-		if (nav.indexOf("Name=") + 5 !=4){
-			if (nav.substring(nav.indexOf("Name=") + 5).contains("alert"))
-				attempt.addPoints(15);
-			attempt.addPoints(5);
-		}
+		if (parser.getAlerts().size() > 0)
+			attempt.addPoints(10);
+		if (parser.getAlerts().contains("Hello Bob"))
+			attempt.addPoints(15);
 	}
 
 	private String fetchPage(String mainPath, String url) throws Exception {

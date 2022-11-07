@@ -35,7 +35,6 @@ public class BiographyChallengeController extends ChallengeControllerAdapter {
 		
 		PageParser parser = new PageParser(html);
 		parser.update();
-
 		// Has an alert
 		if (parser.getAlerts().size() > 0)
 			attempt.addPoints(10);

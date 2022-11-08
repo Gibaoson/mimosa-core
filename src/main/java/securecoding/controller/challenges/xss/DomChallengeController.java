@@ -1,15 +1,9 @@
 package securecoding.controller.challenges.xss;
 
-import java.net.MalformedURLException;
 import java.net.URL;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import org.apache.commons.lang3.StringUtils;
-import org.springframework.util.MultiValueMap;
-import org.springframework.web.util.HtmlUtils;
-import org.springframework.web.util.UriComponentsBuilder;
 
 import securecoding.controller.template.ChallengeController;
 import securecoding.controller.template.ChallengeControllerAdapter;
@@ -52,7 +46,6 @@ public class DomChallengeController extends ChallengeControllerAdapter {
 
 		if (path.equals("") || path.equals("/name=")) {
 			return pageReader.getFragment("main-site").html();
-
 		}
 
 		return pageReader.getFragment("not-found").html();

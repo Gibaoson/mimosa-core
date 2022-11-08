@@ -43,7 +43,8 @@ public class SyndicaChallengeController extends ChallengeControllerAdapter {
 	private String fetchPage(String mainPath, String url) throws Exception {
 		PageReader pageReader = new PageReader("templates/pages/challenges/syndica.html");
 		url = url == null ? "" : url.trim();
-
+		System.out.println("syndica");
+		System.out.println(url);
 		// Bad url
 		if (url.isEmpty() || !url.startsWith(mainPath) || !(new URL(url).getHost().equals(new URL(mainPath).getHost())))
 			return pageReader.getFragment("bad-request").html();
